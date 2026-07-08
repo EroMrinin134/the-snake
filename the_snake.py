@@ -1,3 +1,4 @@
+import sys
 import random
 
 import pygame
@@ -287,11 +288,12 @@ def main():
         eat_apple(snake, apples)
 
         if is_snake_collides(snake):
-            print(f'Игра окончена. Ваш счёт: {len(snake.positions) - 1}.')
+            score = len(snake.positions) - 1
+            sys.stdout.write(f'Игра окончена. Ваш счёт: {score}.\n')
             reset(apples, snake)
 
         if len(apples) == 0:
-            print('Вы победили!')
+            sys.stdout.write('Вы победили!\n')
             reset(apples, snake)
 
         for apple in apples:
